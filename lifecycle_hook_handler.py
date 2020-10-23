@@ -191,7 +191,7 @@ def check_lifecycle_state(command, region, lifecyclehook_name, autoscaling_group
                           heartbeat_rate, timeout):
     state = get_instance_lifecycle_hook_state(instance_id, region)
     logger.info("Hook state is {0}".format(state))
-    if state == "Terminating:Wait":
+    if state == "Terminating":
         logger.info("Run command '{0}' before stopping instance".format(command))
         return_code = run_cmd(command,
                               region,
